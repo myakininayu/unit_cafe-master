@@ -33,7 +33,7 @@ const ProductsForm = () => {
             </Form.Group>
             <Form.Group controlId="formFile" className="mb-3">
                 <Form.Label>Картинка</Form.Label>
-                <Form.Control type="file" onChange={(e) => setItem({...item, img: e.target.value})}/>   {/*value={item?.img} сделать нельзя*/}
+                <Form.Control type="text" value={item?.img} onChange={(e) => setItem({...item, img: e.target.value})}/>  
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Цена</Form.Label>
