@@ -11,7 +11,7 @@ const Product = (props) => {
     <tr>
         <th scope="row">{props.prodInfo.id}</th>
         <td>{props.prodInfo.name}</td>
-        <td><Image className={style.img} src={props.prodInfo.image} alt="Торт"></Image></td>
+        <td><Image className={style.img} src={props.prodInfo.img} alt="Торт"></Image></td>
         <td>{props.prodInfo.price}₽</td>
         <td min-height="200px">
           <div className="d-flex flex-row justify-content-center">

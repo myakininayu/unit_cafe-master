@@ -3,11 +3,11 @@ import axios from "axios";
 
 const useStore = create((set) => ({
     products: [
-        { id: 1, name: '', image: '', price: 0 }
+        { id: 1, name: '', img: '', price: 0 }
     ],
     addProduct: async (newProduct) => {
         try {
-            const response = await axios.post('http://localhost:9000/api/cafe/create', newProduct);
+            const response = await axios.post('http://unit-vlg.ru:7000/api/cafe/create', newProduct);
             if (!response.data) {
                 throw new Error('Ошибка создания нового продукта');
             }
@@ -21,7 +21,7 @@ const useStore = create((set) => ({
     },
     delProduct: async (idDel) => {
         try {
-            const response = await axios.delete(`http://localhost:9000/api/cafe/delete?id=${idDel}`);
+            const response = await axios.delete(`http://unit-vlg.ru:7000/api/cafe/delete?id=${idDel}`);
             if (!response.data) {
                 throw new Error('Ошибка удаления продукта');
             }
@@ -34,12 +34,12 @@ const useStore = create((set) => ({
     },
     getProduct: async () => {
         try {
-            const response = await axios.get('http://localhost:9000/api/cafe/getAll');
+            const response = await axios.get('http://unit-vlg.ru:7000/api/cafe/getAll');
             if (!response.data) {
                 throw new Error('Ошибка загрузки данных');
             }
             const data = response.data;
-            const selectedFields = data.map(({ id, name, image, price }) => ({ id, name, image, price }));
+            const selectedFields = data.map(({ id, name, image, price }) => ({ id, name, img: image, price }));
             set({ products: selectedFields });
         } catch (error) {
             console.error('Ошибка при получении данных:', error.message);
@@ -48,7 +48,7 @@ const useStore = create((set) => ({
     updateProduct: async (updatedProduct) => {
         try {
             
-            const response = await axios.put(`http://localhost:9000/api/cafe/update?id=${updatedProduct.id}`, updatedProduct);
+            const response = await axios.put(`http://unit-vlg.ru:7000/api/cafe/update?id=${updatedProduct.id}`, updatedProduct);
             if (!response.data) {
                 throw new Error('Ошибка обновления продукта');
             }

@@ -18,7 +18,7 @@ const ProductsForm = () => {
     const [item, setItem] = useState({
         id: editedProduct?.id,
         name: editedProduct?.name,
-        image: editedProduct?.image,
+        img: editedProduct?.img,
         price: editedProduct?.price
     });
     const navigate = useNavigate();
@@ -41,7 +41,7 @@ const ProductsForm = () => {
             </Form.Group>
             <Form.Group controlId="formFile" className="mb-3">
                 <Form.Label>Картинка</Form.Label>
-                <Form.Control type="text" value={item?.image} onChange={(e) => setItem({ ...item, image: e.target.value })} />
+                <Form.Control type="text" value={item?.img} onChange={(e) => setItem({ ...item, img: e.target.value })} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                 <Form.Label>Цена</Form.Label>
